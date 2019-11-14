@@ -7,16 +7,18 @@ class BioContent extends React.Component {
     super(props)
 
     this.state = {
-      age: 27,
+      age: this.randomAge(),
       quote: 'I love dogs',
       relationshipStatus: 'Polyamorous',
     }
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
     e.preventDefault()
     this.setState({
-      age: randomAge(),
+      age: this.randomAge(),
       quote: '',
       relationshipStatus: '',
     })
