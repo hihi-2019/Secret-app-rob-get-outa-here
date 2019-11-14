@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const App = () => {
-  return (
-    <h1>React development has begun!</h1>
-  )
+import Banner from './Banner'
+import BioContent from './BioContent'
+import RecentPhotos from './RecentPhotos'
+
+class App extends Component {
+  render() {
+    return (
+      <div className="app">
+        <Banner />
+        <BioContent />
+        <RecentPhotos />
+      </div>
+    )
+  }
 }
 
 export default App
