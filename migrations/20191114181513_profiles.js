@@ -4,12 +4,15 @@ exports.up = function(knex) {
     table.string("name");
     table.integer("age");
     table.string("profile_img");
-    table.string("favourite_quote");
+    table.text("song_lyrics");
     table.string("banner_img");
     table.text("bio");
+    table.string('city');
+    table.string('relationship')
+
   });
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable("users");
+  knex.schema.dropTable("profiles");
 };
