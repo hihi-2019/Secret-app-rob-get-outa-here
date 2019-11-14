@@ -1,0 +1,1 @@
+//Populated with images from external photography API(s)
