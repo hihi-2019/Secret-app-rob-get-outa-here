@@ -1,4 +1,5 @@
 import React from 'react'
+import { getKanyeLyrics } from '../api/apiFetchLyrics'
 
 //Profile bio including age, favourite song lyrics, hometown, family (populated by something funny), relationship status
 
@@ -10,6 +11,7 @@ class BioContent extends React.Component {
       age: this.randomAge(),
       quote: 'I love dogs',
       relationshipStatus: 'Polyamorous',
+      favouriteBeer: 'Tui - India Pale Ale'
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -17,10 +19,13 @@ class BioContent extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    this.setState({
-      age: this.randomAge(),
-      quote: '',
-      relationshipStatus: '',
+    getKanyeLyrics().then(res => {
+      this.setState({
+        age: this.randomAge(),
+        quote: res,
+        relationshipStatus: '',
+        favouriteBeer: ''
+      })
     })
   }
 
@@ -36,9 +41,11 @@ class BioContent extends React.Component {
           <div className='p-4 rounded shadow-sm bg-light'>
             <p className='font-italic mb-0'>Age: {this.state.age}</p>
             <p className='font-italic mb-0'>
-              Favourite song lyrics: {this.state.quote}
+              Favourite Kanye Quote: {this.state.quote}
             </p>
-            <p className='font-italic mb-0'>Relationship Status: {this.state.relationshipStatus}</p>
+            <p className='font-italic mb-0'>
+              Relationship Status: {this.state.relationshipStatus}
+            </p>
             <button
               onClick={this.handleClick}
               className='btn btn-outline-dark btn-sm'
