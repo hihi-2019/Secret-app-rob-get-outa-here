@@ -5,6 +5,6 @@ const kanye = 'https://api.kanye.rest/'
 export function getKanyeLyrics() {
   return request
   .get(kanye)
-  .then(res => res.text)
+  .then(res => JSON.parse(res.text))
 }
 

@@ -1,7 +1,11 @@
 import React from 'react'
 import { getKanyeLyrics } from '../api/apiFetchLyrics'
+import { getRelStatus } from '../api/apiRelationshipStatus'
+import { getBeer } from '../api/apiFetchBeer'
 
-//Profile bio including age, favourite song lyrics, hometown, family (populated by something funny), relationship status
+
+
+
 
 class BioContent extends React.Component {
   constructor(props) {
@@ -19,15 +23,32 @@ class BioContent extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    getKanyeLyrics().then(res => {
+    
+    getKanyeLyrics()
+    .then(res => {
       this.setState({
         age: this.randomAge(),
-        quote: res,
-        relationshipStatus: '',
-        favouriteBeer: ''
+        quote: res.quote,
       })
     })
-  }
+
+    getRelStatus()
+    .then(res => {
+      this.setState({
+        relationshipStatus: res,
+      })
+    })
+
+    getBeer()
+    .then(res => {
+      this.setState({
+        favouriteBeer: res,
+      })
+    }
+
+  )}
+
+
 
   randomAge() {
     return Math.floor(Math.random() * 20) + 24
@@ -45,6 +66,9 @@ class BioContent extends React.Component {
             </p>
             <p className='font-italic mb-0'>
               Relationship Status: {this.state.relationshipStatus}
+            </p>
+            <p className='font-italic mb-0'>
+              Favourite Beer: {this.state.favouriteBeer.name}
             </p>
             <button
               onClick={this.handleClick}

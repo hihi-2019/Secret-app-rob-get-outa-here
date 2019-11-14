@@ -5,10 +5,9 @@ const unsplash = 'https://source.unsplash.com/800x450/?'
 export function getProfileImage() {
   return request
   .get(unsplash + 'elderly')
-  .then(console.log('success')
+  .then(res => res)
 }
 
 export function getRecentPhotos () {
-  return request.get(unsplash)
-  .then(console.log('success')
+  return request.get(unsplash).then(res => res)
 }
