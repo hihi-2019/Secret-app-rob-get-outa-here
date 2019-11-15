@@ -1,0 +1,22 @@
+body {
+  background-color: salmon;
+  margin: 5% 15%;
+}
+
+.banner{
+  display: flex;
+}
+
+#profileImage {
+  width: 500px;
+  height: 500px;
+  border-radius: 50% !important;
+  padding: 5%;
+  align-items: center;
+}
+
+
+.profileName {
+  align-items: center;
+  margin-bottom: 25%
+}
