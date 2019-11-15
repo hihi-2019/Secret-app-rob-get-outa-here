@@ -42,8 +42,28 @@ router.get('/beer', (req, res) => {
       return JSON.parse(data.text)
     })
     .then(data => {
-      console.log(data)
+      // console.log(data)
       res.json(data.data.style)
+    })
+    .catch(err => {
+      res.status(500).send('SHIT!: ' + err.message)
+    })
+})
+
+router.get('/relationship', (req, res) => {
+  request
+    .get(
+      'https://api.datamuse.com/words?ml=divorced&topics=relationship+status&jjb=single'
+    )
+    .then(data => {
+      console.log(typeof data.body)
+      return data.body.map((obj) => {
+        return obj.word
+      
+      })
+    })
+    .then(data => {
+      res.json(data)
     })
     .catch(err => {
       res.status(500).send('SHIT!: ' + err.message)

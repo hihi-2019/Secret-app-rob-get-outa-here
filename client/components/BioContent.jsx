@@ -33,9 +33,11 @@ class BioContent extends React.Component {
     })
 
     getRelStatus()
+    // let randomNumber = Math.floor(Math.random() * 40) 
     .then(res => {
+      console.log(res)
       this.setState({
-        relationshipStatus: res,
+         relationshipStatus: res.body[this.randomAge()]
       })
     })
 
