@@ -1,6 +1,9 @@
 const express = require('express')
+const request = require('superagent')
 const db = require('../db')
 const router = express.Router()
+
+
 
 router.get('/', (req, res) => {
   db.getAllProfiles()
@@ -31,5 +34,21 @@ router.get('/recent-images/:profileId', (req, res) => {
     res.status(500).send('SHIT!: ' + err.message)
   })
 })
+
+router.get('/beer', (req, res) => {
+  request
+    .get('https://www.craftbeernamegenerator.com/api/api.php')
+    .then(data => {
+      return JSON.parse(data.text)
+    })
+    .then(data => {
+      console.log(data)
+      res.json(data.data.style)
+    })
+    .catch(err => {
+      res.status(500).send('SHIT!: ' + err.message)
+    })
+})
+
 
 module.exports = router

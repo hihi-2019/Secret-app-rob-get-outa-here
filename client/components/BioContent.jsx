@@ -41,8 +41,9 @@ class BioContent extends React.Component {
 
     getBeer()
     .then(res => {
+      console.log(res.text)
       this.setState({
-        favouriteBeer: res,
+        favouriteBeer: res.text,
       })
     }
 
@@ -68,7 +69,7 @@ class BioContent extends React.Component {
               Relationship Status: {this.state.relationshipStatus}
             </p>
             <p className='font-italic mb-0'>
-              Favourite Beer: {this.state.favouriteBeer.name}
+              Favourite Beer: {this.state.favouriteBeer}
             </p>
             </div>
             <div>
