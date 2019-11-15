@@ -23,7 +23,7 @@ class BioContent extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    
+
     getKanyeLyrics()
     .then(res => {
       this.setState({
@@ -51,18 +51,18 @@ class BioContent extends React.Component {
 
 
   randomAge() {
-    return Math.floor(Math.random() * 20) + 24
+    return Math.floor(Math.random() * 20) + 65
   }
 
   render() {
     return (
       <>
         <div className='px-4 py-3'>
-          <h5 className='mb-0'>About</h5>
           <div className='p-4 rounded shadow-sm bg-light'>
+          <h5 className='mb-0'>Bio</h5>
             <p className='font-italic mb-0'>Age: {this.state.age}</p>
             <p className='font-italic mb-0'>
-              Favourite Kanye Quote: {this.state.quote}
+              Favourite Quote: {this.state.quote}
             </p>
             <p className='font-italic mb-0'>
               Relationship Status: {this.state.relationshipStatus}
@@ -70,6 +70,9 @@ class BioContent extends React.Component {
             <p className='font-italic mb-0'>
               Favourite Beer: {this.state.favouriteBeer.name}
             </p>
+            </div>
+            <div>
+              <br></br>
             <button
               onClick={this.handleClick}
               className='btn btn-outline-dark btn-sm'
