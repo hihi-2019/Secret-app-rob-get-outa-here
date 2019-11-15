@@ -32,7 +32,7 @@ class RecentPhotos extends React.Component {
           .then(res => {
             let ts = Math.round((new Date()).getTime())
             const newState = [...this.state.images]
-            newState.push(res.req.url)
+            newState.push(res.req.url+'#'+ts)
             this.setState({
               images: newState
             })
