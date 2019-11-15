@@ -9,7 +9,7 @@ class Banner extends React.Component {
 
     this.state = {
       profileImage:
-        'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
+        '/images/profilepic.jpeg',
       profileName: 'Mark Williams',
       nickname: "'Big Dog'",
       city: 'Christchurch',
@@ -55,6 +55,7 @@ class Banner extends React.Component {
           </div>
 
           <div className='media-body profileName'>
+            <img className='logo' src="/images/maturo-logo-2.png" alt=""/>
             <h2 className='mt-0 mb-0 '>
               {this.state.nickname} {this.state.profileName}
             </h2>
