@@ -1,8 +1,7 @@
-import request from 'superagent'
-
-const beer = 'https://api.beer.rest/'
+const request = require('superagent')
 
 export function getBeer() {
-  return request.get(beer)
-  .then(res => res.data)
+  return request
+    .get('/api/beer')
+    .then(res => res)
 }
